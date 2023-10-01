@@ -1,1 +1,1 @@
-postdeploy: php bin/console doctrine:migrations:migrategit
+postdeploy: php bin/console doctrine:migrations:migrate
