@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	<main class="container">
+		<section class="raw">
+			<div id="carouselExampleIndicators" class="carousel slide mt-2">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					{% for slider in sliders %}
+						<div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}">
+							<img style="width: 85vw; height: 75vh;" class="d-block w-100" src="{{ asset('assets/uploads/' ~ slider.image) }}" alt="Slide">
+						</div>
+					{% endfor %}	
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+
+			{# <div class="col-12">
+							<h1 class="h1">Bienvenue dans notre boutique de vente d'art</h1>
+						</div> #}
+
+			<div class="text-center m-4 p-5">
+				<hr class="border border-primary border-1 opacity-50">
+				<h1 class="text-center m-4 text-dark">Qui sommes-nous ?</h1>
+				<p class="m-5 description-article">Plongez dans l'univers captivant de l'art français contemporain avec French Art, une plateforme dédiée à la promotion des artistes émergents français. Notre mission est de mettre en lumière le talent exceptionnel qui émerge de la France dans les domaines de la peinture, de la sculpture et de la photographie.</p>
+				<p class="m-4 description-article">La France est depuis longtemps un berceau de créativité artistique. Des rues pavées de Paris aux paysages pittoresques de la campagne française, notre pays a inspiré des générations d'artistes à explorer leur imagination et à créer des œuvres d'art extraordinaires. Chez French Art, nous croyons que l'art est un reflet puissant de la culture, de l'histoire et de l'âme d'une nation.</p>
+				<hr class="border border-primary border-1 opacity-50">
+			</div>
+			{# 
+						<div class="col-12 d-flex">
+							{% for category in categories %}
+								<div class="col-4">
+									<div class="card h-100">
+										<div class="card-body">
+											<h3 class="card-title">{{category.name}}</h3>
+											<a href="{{ path('categories_list', {slug: category.slug}) }}" class=" submit">Voir plus</a>
+										</div>
+									</div>
+			
+								</div>
+							{% endfor %}
+						</div> #}	
+			<div class="col-12"></div>
+		</section>
+	</main>
+{% endblock %}

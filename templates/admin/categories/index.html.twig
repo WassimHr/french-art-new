@@ -1,0 +1,35 @@
+    {% extends "base.html.twig" %}
+
+    {% block title %}Liste des catégories{% endblock %}
+
+    {% block body %}
+        <div class="container-fluid">
+            <div class="row">
+                <main class="col-9 border border-light bg-white p-2 m-auto">
+                    <h1 class="h1">Liste des catégories</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Slug</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for categorie in categories %}
+                                <tr>
+                                    <td>{{ categorie.id }}</td>
+                                    <td>{{ categorie.name }}</td>
+                                    <td>{{ categorie.slug }}</td>
+                                    <td><a href="{{path('admin_categories_delete', {slug: categorie.slug})}}" class="btn btn-danger">X</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="detail mt-3" href="{{path('admin_categories_add')}}">Ajouter une categorie</a>
+                </main>
+            </div>
+        </div>
+
+    {% endblock %}

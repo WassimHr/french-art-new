@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Administration
+{% endblock %}
+
+
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<main class="col-9 border border-light bg-white p-2 m-auto">
+				<h1 class="h1">Liste des utilisateurs</h1>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>Adresse</th>
+							<th>Code postal</th>
+							<th>Ville</th>
+							<th>Date d'ajout</th>
+							<th>Options</th>
+							{# <th>Rôle</th> #}
+
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in users %}
+							<tr>
+								<td>{{ user.id }}</td>
+								<td>{{ user.lastname }}</td>
+								<td>{{ user.firstname }}</td>
+								<td>{{ user.address }}</td>
+								<td>{{ user.zipcode }}</td>
+								<td>{{ user.city }}</td>
+								<td>{{ user.createdAt|date('m/d/Y') }}</td>
+								<td>
+									<a href="{{path('admin_users_edit', {id: user.id})}}" class="btn btn-warning">Modifier</a>
+                                    <a href="{{path('admin_users_delete', {id: user.id})}}" class="btn btn-danger">X</a>									
+								</td>
+
+								{# <td>{{ user.role}}</td> #}
+
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</main>
+		</div>
+	</div>
+
+{% endblock %}

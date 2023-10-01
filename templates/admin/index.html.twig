@@ -1,0 +1,55 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}
+	Administration
+{% endblock %}
+
+
+{% block body %}
+ <h1 class="h1">Administration du site</h1>
+
+ <ul class="mx-auto mb-5 ul" >
+ 
+ <li class="gestion-admin"><a class="a-gestion" href="{{path('admin_users_index')}}">Gestion des utilisateurs</a></li>
+ <li class="gestion-admin"><a class="a-gestion" href="{{path('admin_categories_index')}}">Gestion des categories</a></li>
+ <li class="gestion-admin"><a class="a-gestion" href="#">Gestion des photos d'accueil</a></li>
+ <li class="gestion-admin"><a class="a-gestion" href="#">Gestion des articles</a></li>
+
+
+
+ 
+ </ul>
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Administration
+{% endblock %}
+
+{% block body %}
+	<h1 class="h1 text-center">Administration du site</h1>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<ul class="list-unstyled">
+					<li class="gestion-admin text-center"><a class="a-gestion" href="{{path('admin_users_index')}}">Gestion des utilisateurs</a>
+				</li>
+				<li class="gestion-admin text-center">
+					<a class="a-gestion" href="{{path('admin_categories_index')}}">Gestion des categories</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<ul class="list-unstyled">
+				<li class="gestion-admin text-center">
+					<a class="a-gestion" href="{{path('admin_slider_index')}}">Gestion des photos d'accueil</a>
+				</li>
+				<li class="gestion-admin text-center">
+					<a class="a-gestion" href="{{path('admin_products_index')}}">Gestion des articles</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>{% endblock %}

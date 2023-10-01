@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Accueil
+			{% endblock %}
+			- French'Art</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}"> 
+		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+		{% block stylesheets %}{% endblock %}
+		
+		
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
+		
+		{% block javascripts %}{% endblock %}
+		<script src="{{asset('assets/js/scripts.js')}}" defer></script>
+
+	</head>
+	<body>
+	{% include '_partials/_flash.html.twig' %}
+		{% if is_granted('ROLE_ADMIN') %}
+		{% include "_partials/_navAdmin.html.twig" %}
+		{% else %}
+		{% include "_partials/_nav.html.twig" %}	
+		
+		{% endif %}
+		
+		
+		{% block body %}{% endblock %}
+		{% include "_partials/_footer.html.twig" %}
+
+	</body>
 </html>

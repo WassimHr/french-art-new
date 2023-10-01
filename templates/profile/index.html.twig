@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+            <h1 class="text-center m-5">Mon profil</h1>
+				<div class="profile-bloc">
+					<h1 class="profile-title text-center">Données personnelles de
+						{{ app.user.firstname }}
+						{{ app.user.lastname }}</h1>
+
+					<div class="profile-info">
+						<p class="profile-info-item">Prénom :
+							{{ app.user.firstname }}</p>
+						<p class="profile-info-item">Nom :
+							{{ app.user.lastname }}</p>
+						<p class="profile-info-item">Adresse :
+							{{ app.user.address }}</p>
+						<p class="profile-info-item">Code postal :
+							{{ app.user.zipcode }}</p>
+						<p class="profile-info-item">Ville :
+							{{ app.user.city }}</p>
+						<p class="profile-info-item">Membre depuis le :
+							{{ app.user.createdAt|date('m/d/Y') }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12">
+				<div class="profile-bloc">
+
+					<h1 class="profile-title text-center">Commande(s) de
+						{{app.user.firstname}}
+						{{app.user.lastname}}</h1>
+
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Commande n°</th>
+								<th>Référence</th>
+								<th>Date de commande</th>
+								<th>Produit</th>
+								<th>Quantité</th>
+								<th>Prix unitaire</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for order in app.user.orders %}
+								<tr>
+									<td>{{ order.id }}</td>
+									<td>{{ order.reference }}</td>
+									<td>{{ order.createdAt|date('d/m/Y H:i:s') }}</td>
+
+									<td>
+
+										{% for orderDetail in order.ordersDetails %}
+											{{ orderDetail.products.name }}
+										{% endfor %}
+
+									</td>
+									<td>
+
+										{% for orderDetail in order.ordersDetails %}
+											{{ orderDetail.quantity }}
+										{% endfor %}
+
+									</td>
+									<td>
+
+										{% for orderDetail in order.ordersDetails %}
+											{{ orderDetail.price / 100 }}€
+										{% endfor %}
+
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col-md-12 col-sm-12 mt-5">
+				<div class="profile-bloc">
+
+					<h1 class="profile-title text-center">Produits en vente de : 
+						{{app.user.firstname}}
+						{{app.user.lastname}}</h1>
+
+
+					<table class="table">
+						<thead>
+							<tr>
+						    <th>Nom</th>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+							</tr>
+						</thead>
+						{# <tbody>
+						{% for product in app.user.products %}
+							<tr>
+							<td>{{ product.name }}</td>
+							<td><img src="{{ asset('assets/uploads/' ~ product.image )}}" width="120" height="120" alt=""></td>
+							<td>{{ product.description }}</td>
+							<td>{{ product.price / 100 }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div> #}
+
+
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

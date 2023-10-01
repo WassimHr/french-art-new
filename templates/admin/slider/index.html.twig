@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Liste des images d'accueil
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<main class="col-9 border border-light bg-white p-2 m-auto">
+				<h1 class="h1">Liste des images d'accueil</h1>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nom</th>
+							<th>Image</th>
+							<th>Ordre</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for slider in sliders %}
+							<tr>
+								<td>{{ slider.id }}</td>
+								<td>{{slider.image}}</td>
+								<td><img src="{{ asset('assets/uploads/' ~ slider.image )}}" width="120" height="120" alt=""></td>
+								<td>{{ slider.ordre }}</td>
+								<td>
+									<a href="{{path('admin_slider_edit', {id: slider.id})}}" class="btn btn-warning">Modifier</a>
+                                    <a href="{{path('admin_slider_delete', {id: slider.id})}}" class="btn btn-danger">X</a>
+									
+								</td>
+
+
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+                    <a class="detail mt-3" href="{{path('admin_slider_add')}}">Ajouter une image</a>
+
+			</main>
+		</div>
+	</div>
+
+{% endblock %}
