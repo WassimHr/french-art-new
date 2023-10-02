@@ -1,68 +1,3 @@
-{# 
-
- {% extends 'base.html.twig' %}
-
-{% block title %}
-	Détails de
-{% endblock %}
-
-{% block body %}
-<main class="container">
-        <section class="row">
-            <div class="col-12">
-                <h1 class=" h1">{{ product.name }}</h1>
-            </div>
-            <div class="col-4">
-            
-            <img src="{{ asset('assets/uploads/' ~ product.image )}}" width="400" height="300" alt="{{ product.name }}">
-            </div>
-            <div class="col-6">
-                <p>{{ product.description }}</p>
-                <p>Catégorie : {{ product.categories.name }}</p>
-                <p>Prix : {{ product.price / 100}} €</p>
-                {% if product.stock > 0 %}
-                    <a href="{{path('cart_add', {id: product.id})}}" class="btn btn-success">Ajouter au panier</a>
-                {% else %}
-                    <p class="text-danger">Temporairement en rupture de stock</p>
-                {% endif %}
-            </div>
-        </section>
-    </main>
-{% endblock %} #}
-{# 
-{% extends 'base.html.twig' %}
-
-{% block title %}
-    Détails de {{ product.name }}
-{% endblock %}
-
-{% block body %}
-<main class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="h1">{{ product.name }}</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{{ asset('assets/uploads/' ~ product.image )}}" class="img-fluid" alt="{{ product.name }}">
-        </div>
-        <div class="col-md-6">
-            <p class="description-article"><strong>Description : </strong>{{ product.description }}</p>
-            <p><strong>Catégorie : </strong>{{ product.categories.name }}</p>
-            <p><strong>Prix : </strong> {{ product.price / 100 }} €</p>
-            {% if product.stock > 0 %}
-                <a href="{{ path('cart_add', {id: product.id}) }}" class="btn btn-success mt-5">Ajouter au panier</a> <p class="description-article mt-3">
-                <p>Il ne reste que {{product.stock}} exemplaire de cette {{ product.categories.name }}.</p>
-            {% else %}
-                <p class="text-danger">Temporairement en rupture de stock</p>
-            {% endif %}
-           
-        </div>
-    </div>
-</main>
-{% endblock %} #}
-
 {% extends 'base.html.twig' %}
 
 {% block title %}
@@ -97,5 +32,6 @@
             {% endif %}
         </div>
     </div>
+    <h1 class="text-center h1 m-5">Avis de nos clients</h1>
 </main>
 {% endblock %}

@@ -24,7 +24,8 @@ class Orders
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrdersDetails::class)]
+    // #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrdersDetails::class)]
+    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrdersDetails::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $ordersDetails;
 
     public function __construct()

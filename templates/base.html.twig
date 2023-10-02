@@ -22,14 +22,13 @@
 
 	</head>
 	<body>
-	{% include '_partials/_flash.html.twig' %}
+	
 		{% if is_granted('ROLE_ADMIN') %}
 		{% include "_partials/_navAdmin.html.twig" %}
 		{% else %}
 		{% include "_partials/_nav.html.twig" %}	
-		
 		{% endif %}
-		
+		{% include '_partials/_flash.html.twig' %}
 		
 		{% block body %}{% endblock %}
 		{% include "_partials/_footer.html.twig" %}
