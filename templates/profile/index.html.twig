@@ -25,6 +25,10 @@
 							{{ app.user.createdAt|date('m/d/Y') }}</p>
 					</div>
 				</div>
+				<div class="text-center">
+				                <a href="{{path('profile_edit', {id: app.user.id})}}" class="btn btn-warning">Modifier</a>                                
+
+				</div>
 			</div>
 			<div class="col-md-12 col-sm-12">
 				<div class="profile-bloc">
@@ -96,6 +100,7 @@
                             <th>Prix</th>
 							</tr>
 						</thead>
+						
 						{# <tbody>
 						{% for product in app.user.products %}
 							<tr>

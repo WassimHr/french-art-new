@@ -43,7 +43,7 @@ class Products
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Categories $categories = null;
 
-    #[ORM\OneToMany(mappedBy: 'products', targetEntity: OrdersDetails::class)]
+    #[ORM\OneToMany(mappedBy: 'products', targetEntity: OrdersDetails::class, cascade: ['remove'])]
     private Collection $ordersDetails;
 
     #[ORM\OneToMany(mappedBy: 'products', targetEntity: Comments::class)]

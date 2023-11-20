@@ -89,7 +89,7 @@ class ProductsController extends AbstractController
         $entityManager->remove($products);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Utilisateur supprimé avec succès.');
+        $this->addFlash('success', 'Produit supprimé avec succès.');
 
         return $this->redirectToRoute('admin_products_index');
     }
