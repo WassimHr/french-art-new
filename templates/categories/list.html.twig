@@ -22,11 +22,11 @@
 
 					<article class="carte">
 
-						<legend class="mt-3 mb-5 legend-article">{{product.name}}</legend>
+						{# <legend class="mt-3 mb-5 legend-article">{{product.name}}</legend> #}
 						{# <h2 class="card-title">{{product.name}}</h2> #}
-						<img src="{{ asset('assets/uploads/' ~ product.image )}}" style="width: 90%;" height="250" alt="{{ product.name }}">
+						<img src="{{ asset('assets/uploads/' ~ product.image )}}" style="width: 90%;" height="250" alt="{{ product.name }}" class="mt-3"><legend class=" mt-2 mb-2 legend-article">{{product.name}}</legend>
 						<p class="card-text pt-4 m-auto description-article-list" style="width: 80%;">{{product.description}}</p>
-						<p class="mt-1">{{product.price / 100}} €</p>
+						<p class="mt-2"><strong>{{product.price / 100}} €</strong></p>
 						<div class="d-flex justify-content-center m-auto mt-5 mb-5">
 							<a href="{{path('products_details', {"slug" : product.slug})}}" class="detail me-1 ">Voir plus</a>
 							<a href="{{ path('cart_add', {id: product.id}) }}" class="submit ms-1">Ajouter au panier</a>

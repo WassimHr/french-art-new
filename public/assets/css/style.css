@@ -26,6 +26,23 @@
      width: 100%;
  }
 
+ .f-propos{
+    color: rgb(208, 57, 57);
+ }
+
+ .f-utile{
+    color: rgb(208, 57, 57);
+
+ }
+ h3{
+    color: rgb(208, 57, 57);
+
+ }
+
+ ul {
+    list-style-type: none;
+  }
+
  .h1 {
      margin: 35px;
      color: #984c4c;
